@@ -42,8 +42,8 @@ public class SoftwareJoystickActivity extends AbstractIOIOActivity {
 
 		public void setup() throws ConnectionLostException {
 			try {
-				panPwmOutput = ioio_.openPwmOutput(PAN_PIN, PWM_FREQ);
-				tiltPwmOutput = ioio_.openPwmOutput(TILT_PIN, PWM_FREQ);
+				panPwmOutput = ioio_.openPwmOutput(new DigitalOutput.Spec(PAN_PIN, Mode.OPEN_DRAIN), PWM_FREQ);
+				tiltPwmOutput = ioio_.openPwmOutput(new DigitalOutput.Spec(TILT_PIN, Mode.OPEN_DRAIN), PWM_FREQ);
 			} catch (ConnectionLostException e) {
 				throw e;
 			}
